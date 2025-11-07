@@ -1,28 +1,32 @@
-import { useState } from 'react'
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Downloads from './components/Downloads';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div id="top" className="min-h-screen w-full bg-black font-inter">
+      {/* background glow */}
+      <div className="pointer-events-none fixed inset-0 -z-0">
+        <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="absolute right-10 bottom-10 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-3xl" />
       </div>
+
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <Downloads />
+        <Contact />
+      </main>
+
+      <footer className="border-t border-white/10 py-10 text-center text-xs text-white/60">
+        © {new Date().getFullYear()} NovaDroid • Built with love for Android power users
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
